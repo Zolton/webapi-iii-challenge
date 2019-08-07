@@ -35,6 +35,19 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    posts
+      .remove(id)
+      .then(deletedPost => {
+        res.status(200).json({ message: "Deleted 1 post" });
+      })
+      .catch(error => {
+        res.status(500).json("There was a 500 status error");
+      });
+  });
+  
+
 
 router.post("/", validatePost, (req, res) => {
   newPost = req.body;
@@ -46,5 +59,18 @@ router.post("/", validatePost, (req, res) => {
     res.status(500).json("There was a 500 status error");
   });
 });
+
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const change = req.body;
+    posts
+      .update(id, change)
+      .then(updatedPost => {
+        res.status(200).json(updatedPost);
+      })
+      .catch(error => {
+        res.status(500).json("There was a 500 status error");
+      });
+  });
 
 module.exports = router;

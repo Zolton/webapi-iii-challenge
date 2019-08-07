@@ -6,10 +6,6 @@ const postRouterFile = require("./Router/postRouter");
 
 server.use(express.json());
 server.use("/posts", postRouterFile);
-server.use(logger)
-server.use(validateUserId)
-server.use(validateUser)
-
 
 let users = require("./users/userDb");
 
