@@ -46,7 +46,6 @@ router.delete("/:id", (req, res) => {
         res.status(500).json("There was a 500 status error");
       });
   });
-  
 
 
 router.post("/", validatePost, (req, res) => {

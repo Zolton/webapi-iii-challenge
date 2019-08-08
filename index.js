@@ -1,5 +1,6 @@
 // code away!
-
+require("dotenv").config()
+const port = process.env.PORT
 const express = require("express");
 const server = express();
 const postRouterFile = require("./Router/postRouter");
@@ -108,7 +109,7 @@ server.delete("/:id", logger, (req, res) => {
     });
 });
 
-server.listen(8000, () => {
+server.listen(port, () => {
   console.log("Server is running on port 8000");
 });
 
